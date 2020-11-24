@@ -1,0 +1,131 @@
+10/24 
+카카오뱅크 강사님
+
+
+테드 페이페이강사(중국계인) 이미지넷 - 사진을 보고 컴퓨터가 판단해서 분류한다
+
+딥러닝 데이터베이스 모델 있는데서 그냥 긁어오면 안돼? 라는 생각을 하면 안된다!
+
+데이터 라벨링(자동차?) - 용량이 무려 최소 11TB, 이 용량을 어디다 담을까?
+
+클로바? - 스타트업이 성장하는데 도움이 됨 
+스타트업: 당근마켓, 하이퍼카넥트(특히 추천, 빡셈), 쿠팡
+
+get training data >>> 가장 중요하다
+coding >> 비중 적음 ( git발달 )
+
+google >> health 관련 논문 다량 내놓고 있음
+전문가들의 입지가 높아짐(구글같은경우, 의학)
+
+data scientist 의 수요가 높아질 전망?
+
+면접 - 본인이 원하는 데이터를 가공하기 위해서 
+데이터를 만드는 툴을 만들어본 경험 있으면 +++!
+데이터를 바라보는 관찰력이 있다는 증거
+ex) 스노우 눈코입 찾는 알고리즘
+
+
+github.com/wkentaro/labelme 보는거 추천!
+침착한 생성모델 학습사이트 ㅋㅋㅋㅋ
+AIHUB
+빈라덴 찾을때 미국의 기업을 이용한 썰이 있다..?
+서울로보틱스
+
+
+
+인프라 구성 , 툴 셋팅 - 실무영역, 단순한 코더가 되지말자
+
+기존의 것을 이용해서 내것 만들기 -> 내기술
+
+
+
+## install
+git clone https://github.com/Joeclinton1/google-images-download.git
+cd google-images-download
+sudo python3 setup.py install
+python3 ./downloader.py 
+
+
+## usage
+from google_images_download import google_images_download
+def imageCrawling(keyword, directory, count):
+	response = google_images_download.googleimagesdownload()
+	arguments = {
+		"keywords": keyword,
+		"limit":count,
+		"print_urls":True,
+		"no_directory":True,
+		"output_directory":directory
+		}
+	paths = response.download(arguments)
+	print(paths)
+	
+imageCrawling("된장찌개", "./images/jjigae", 100)
+
+
+
+
+
+
+---------------------------------------------
+11/14 토
+
+
+벡터화               vectorization
+는 코드를 빠르게 해준다
+
+SIMD
+
+np.dot
+
+numpy
+
+gpu in neural networks: 		matrix multiplication
+
+opencv simd
+
+NPU
+
+google clips
+
+training : learning a new capability from existing data
+
+inference : applying this capability to new data
+
+inference engine : 딥러닝 모델을 동작시키는 모듈 (cpp의 중요성) (tenserflow)
+
+onnx (오닉스) open neural network exchange
+
+github.com/Tencent/ncnn
+
+딥러닝 모델을 이용한 API 서버
+
+딥러닝 모델을 이용한 모바일 애플리케이션
+
+딥러닝 모델을 이용한 데스크탑 애플리케이션
+
+딥러닝 모델을 이용한 임베디드 애플리케이션
+
+쏘카 테크 블로그 : 서빙 아키텍쳐, 이미지수집, 
+
+full stack deeplearning
+
+most common ML roles : ML product manager, DevOps, Data engineer, ML engineer, ML researcher / ML scientist, Data scientist
+
+포트폴리오를 만들 때 : 왜 그렇게 했어요? / 그거 어떻게 했어요? 
+					그거 어떻게 했어요? 라는 질문이 나오게 포트폴리오를 만들어야한다
+
+당근마켓 : 텐서플로, 파이토치 딥러닝 프로젝트 경험 
+ex) :	(tenserflow/models), (huggingface/transformers)
+github 등 본인을 어필할수 있는 모든것
+
+하이퍼커넥트 : 학회 및 저널 1저자 경험? 나한텐 현실적으로 힘듬
+
+카카오뱅크 : 2년이상경력, c++을 이용한 개발경력
+
+ML2 : 반도체회사, 돈이많음, 연구만함
+여기한번 더 조사해봐야함
+
+뱅크샐러드 : 사업상황만보면 안좋다...?
+
+스트라드비젼? 여기 관심 가져보자

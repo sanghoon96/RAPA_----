@@ -1,0 +1,171 @@
+11/23.월 강의 메모
+
+visual studio code 열기
+
+extensions 메뉴 들어가기
+
+Hex Editor 설치
+
+아무파일이나 단축 메뉴 누르고
+
+open with...
+
+Hex Editor로 열기
+
+----------------------------------------------------------
+
+컴퓨터는 16진수를 2진수로 바꿔서 세상을 본다..?
+
+인간 16진수, 컴퓨터 2진수
+
+32비트와 64비트의 차이는 컴퓨터가 한번에 처리하는 정보의 사이즈의 차이
+
+----------------------------------------------------------
+
+ASCll 코드 인간과 컴퓨터의 소통을 위한 코드
+
+1 Byte = 7 bit + 1 bit (에러코드)
+
+----------------------------------------------------------
+
+CPU : 기억과 처리
+
+CPU : Register(중요), 연산장치, 제어장치
+
+----------------------------------------------------------
+
+INSTANCE
+
+인스턴스(=프로시저)는 메모리가 소프트웨어가 올라간 상태
+
+----------------------------------------------------------
+
+bg(&) : 프로세스 백그라운드 전환
+
+fg : 프로세스 포그라운드 전환
+
+----------------------------------------------------------
+
+terminal 창
+
+top 입력해보기
+
+ps -ef 입력해보기                 : /는 os 프로그램
+
+PID, PPID 번호를 확인하라
+
+----------------------------------------------------------
+
+CPP_app pdf 10 page
+
+GetProcessID.c
+
+ps -ef | grep GetProcessId                              # check PID or ~$ top
+sudo kill -9 18181                                      # Check Terminal loop
+
+
+1. 중간에 while 한번 빼고 실행해봐라. 바로 프론포트로 간다.
+
+2. ps -ef | grep GetProcessID & 하고 kill 해봐라 : 백그라운드에서 실행
+
+----------------------------------------------------------
+
+Computersystem.pdf          14page
+
+Process - kill
+
+- 오강사님 왈 : 다 알겠죠?
+
+.....?
+
+----------------------------------------------------------
+
+그냥 쭉쭉 설명
+
+Computersystem.pdf          15page
+
+Computersystem.pdf          16page
+
+Memory Per Device
+
+* 우리한테 중요한거는 ROM 
+
+----------------------------------------------------------
+
+Computersystem.pdf          17page
+
+리눅스에서 /dev/ 는 device 라는 뜻
+
+----------------------------------------------------------
+
+Computersystem.pdf          18page
+
+주말농장ㅋㅋㅋㅋ 
+
+파일시스템 나누는법 얘기
+
+----------------------------------------------------------
+
+Computersystem.pdf          19page
+
+설명~
+
+----------------------------------------------------------
+
+Computersystem.pdf          20page
+
+터미널에서 fdisk -l  권한필요 : sudo 사용
+
+Disk /dev/sda 이 부분 봐야함
+
+휴대폰이나 다른 usb 꽂고 다시하면 (fdisk -l)
+
+ex :
+
+Device       Start       End   Sectors   Size Type
+/dev/sda1     2048   1050623   1048576   512M EFI System
+/dev/sda2  1050624 976771071 975720448 465.3G Linux filesystem
+
+이런게 나옴
+
+MBI 의 영역은 보통 프로그램으로는 할 수 없다?
+
+----------------------------------------------------------
+
+Computersystem.pdf          21page
+
+설명~
+
+----------------------------------------------------------
+
+Computersystem.pdf          22page
+
+ls -il : 폴더나옴
+
+mkfs /dev/sdb1                      # Block Area Format
+
+이거하면 폴더 영역 포맷함
+
+----------------------------------------------------------
+
+Command Line Arguments with Pointer
+
+vi.CommandLineArguments.cpp
+
+내용:
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char **argv){
+    cout << "You have entered" << argc << " arguments:" << "\n";
+    for (int i = 0; i < argc; ++i)
+    cout << argv[i] << "\n";
+    return 0;
+}
+
+./CommandLineArguments Command line arguments in C/C++ 입력
