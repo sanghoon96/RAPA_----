@@ -1,0 +1,161 @@
+https://docs.google.com/document/d/1zjNS2Dr3wsbxy2879hGJ_IvROpK96TgXkLLJBVpybkc/edit
+
+파일설치
+
+조립 후 sd카드, usb 삽입
+
+NVIDIA.pdf
+
+Cloud Computing 페이지 설명~
+
+------------------------------------------------------------------------------------------------------
+
+x-special/nautilus-clipboard
+copy
+file:///home/sanghoon/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C/balena-etcher-electron-1.5.111-linux-x64/balenaEtcher-1.5.111-x64.AppImage
+
+balenaEtcher 바꿔야함 -> 단축메뉴 띄우고 속성(properties) -> permissions -> 파일을 프로그램으로 실행 권한 허용
+
+sd카드, usb 합치고 컴퓨터 삽입 -> balenaEtcher 실행 -> 선택 후 Flashing
+
+------------------------------------------------------------------------------------------------------
+
+13:00pm 강의시작
+
+NVIDIA의 과학시간 - GPU와 CPU의 차이 영상 시청
+
+오강사님왈 : 행렬은 딥러닝의 꽃
+
+------------------------------------------------------------------------------------------------------
+
+로봇 부품 소개
+
+------------------------------------------------------------------------------------------------------
+
+터미날창에서
+
+sudo apt install -y screen
+~$ sudo screen /dev/ttyACM0 115200
+
+nmcli device
+
+ifconfig
+
+nmcli device wifi list
+
+sudo nmcli device wifi connect 206ho -> id, passwd : jetbot
+
+ifconfig : ip 주소알기                                          // ip와 port 알아야함
+
+http://192.168.0.198:8888/ 크롬창에서 주소열기 8888이 포트 -> 주피터 화면 나옴
+
+터미널창 새로 띄우고
+
+ssh jetbot@192.168.0.198
+
+------------------------------------------------------------------------------------------------------
+
+xeyes &
+[1] 31448
+jetbot@jetson-4-3:~$ Error: Can't open display: 
+^C
+[1]+  Exit 1                  xeyes
+
+// 설정 가르쳐주신다고 하셨는데 실패...
+
+------------------------------------------------------------------------------------------------------
+
+~$ sudo shutdown now : 화면 나가기
+
+------------------------------------------------------------------------------------------------------
+
+jupyter -> 오강사님의 중요한 기능 3가지 설명
+
+// basic motion
+
+all kernel : 모든게 초기화?
+
+위에서부터 아래로 한줄 한줄 shift + enter(ctrl + enter) 로 내려가라
+
+jupyter 로 기능 구현
+
+ipynb를 새로 만들어서 자기가 기능을 넣어도됨
+
+------------------------------------------------------------------------------------------------------
+
+from jetbot import Robot
+robot = Robot()
+robot.set_motors(0.1, 0.1)
+------------------------------------------------------------------------------------------------------
+robot.stop()
+
+------------------------------------------------------------------------------------------------------
+import ipywidgets.widgets as widgets
+from IPython.display import display
+
+# create two sliders with range [-1.0, 1.0]
+left_slider = widgets.FloatSlider(description='left', min=-1.0, max=1.0, step=0.01, orientation='vertical')
+right_slider = widgets.FloatSlider(description='right', min=-1.0, max=1.0, step=0.01, orientation='vertical')
+
+# create a horizontal box container to place the sliders next to eachother
+slider_container = widgets.HBox([left_slider, right_slider])
+
+# display the container in this cell's output
+display(slider_container)
+------------------------------------------------------------------------------------------------------
+# create buttons
+button_layout = widgets.Layout(width='100px', height='80px', align_self='center')
+stop_button = widgets.Button(description='stop', button_style='danger', layout=button_layout)
+forward_button = widgets.Button(description='forward', layout=button_layout)
+backward_button = widgets.Button(description='backward', layout=button_layout)
+left_button = widgets.Button(description='left', layout=button_layout)
+right_button = widgets.Button(description='right', layout=button_layout)
+fright_button = widgets.Button(description='fright', layout=button_layout)
+fleft_button = widgets.Button(description='fleft', layout=button_layout)
+bright_button = widgets.Button(description='bright', layout=button_layout)
+bleft_button = widgets.Button(description='bleft', layout=button_layout)
+
+# display buttons
+middle_box1 = widgets.HBox([fleft_button, stop_button, fright_button], layout=widgets.Layout(align_self='center'))
+middle_box = widgets.HBox([left_button, stop_button, right_button], layout=widgets.Layout(align_self='center'))
+middle_box2 = widgets.HBox([bleft_button, stop_button, bright_button], layout=widgets.Layout(align_self='center'))
+controls_box = widgets.VBox([forward_button, middle_box1, middle_box, middle_box2, backward_button])
+display(controls_box)
+------------------------------------------------------------------------------------------------------
+def stop(change):
+    robot.stop()
+    
+def step_forward(change):
+    robot.set_motors(0.1, 0.085)
+
+def step_backward(change):
+    robot.set_motors(-0.1, -0.1)
+
+def step_left(change):
+    robot.left(0.1)
+
+def step_right(change):
+    robot.right(0.1)
+    
+def step_fright(change):
+    robot.set_motors(0.2, 0.1)
+    
+def step_fleft(change):
+    robot.set_motors(0.1, 0.2)
+    
+def step_bright(change):
+    robot.set_motors(-0.15, -0.1)
+    
+def step_bleft(change):
+    robot.set_motors(-0.1, -0.15)
+------------------------------------------------------------------------------------------------------
+# link buttons to actions
+stop_button.on_click(stop)
+forward_button.on_click(step_forward)
+backward_button.on_click(step_backward)
+left_button.on_click(step_left)
+right_button.on_click(step_right)
+fright_button.on_click(step_fright)
+fleft_button.on_click(step_fleft)
+bright_button.on_click(step_bright)
+bleft_button.on_click(step_bleft)
