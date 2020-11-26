@@ -1,5 +1,80 @@
 Jetson Family (pdf 설명)
 
-GPIO Jetson Nano Carrier board (pdf 설명)
+GPIO Jetson Nano Carrier board (pdf 설명) : 3.3 VDC ( v = 볼트), GND = greed (마이너스)
 
-3.3 VDC ( v = 볼트), GND = greed (마이너스), 
+Setup - 오픈소프트웨어 (Arduino)
+
+아두이노 - 오픈 하드웨어 (MicroController) : 소프트웨어 (펌웨어) 방식으로 작동
+
+Comparing Open Hardware : Arduino Uno, Raspberry Pi (잭슨 나노의 조상), BeagleBone Black
+
+Arduino - 개발환경(오픈소프트웨어) :
+
+setup() 1. 전원 인가 시 가장 처음에 한번만 실행 2. 각종 설정 및 초기화 담당 
+
+loop() 1. 실제 응용 동작, 반복 수행 2. Arduino 응용 프로그램의 main routine
+
+각종 전자 모듈 (pdf 설명) : 부품, 센서 설명
+
+전자회로(pdf 설명) : 능동소자 구성, 전기 흐름 제어
+
+다이오드(pdf 설명) - 전자부속 : 신호, 전기       
+                  - MCU 에 관한거 알아야함
+
+-------------------------------------------------------------------
+
+GPIO with sys (pdf 설명)
+
+ssh jetbot@192.168.0.198 -> sudo su -> 
+
+-------------------------------------------------------------------
+
+pin을 12, 14번에 연결, 다이오드 연결 -> 불들어오는거 확인
+
+-------------------------------------------------------------------
+GPIO with python 
+
+주피터에서 작업
+
+~$ vi simple_out.py
+
+-------------------------------------------------------------------
+
+visual studio 에서 작업하려면 
+
+extensions -> ssh -> ssh jetbot@ip주소 -> connect to host -> python 설치 -> 작업
+
+-------------------------------------------------------------------
+
+git clone https://github.com/PX4/PX4-Autopilot
+
+파일받은후 파일있는 폴더위치 터미널에서
+
+bash ./Tools/setup/ubuntu.sh 입력
+
+Drone_simulator.pdf 9page 중요! 명령어 많음
+
+-------------------------------------------------------------------
+
+cmake (pdf 설명) : makefile이랑 비슷한 기능인데 그 차이를 알아야함
+
+-------------------------------------------------------------------
+
+Drone_simulator.pdf 9page 중요
+
+-------------------------------------------------------------------
+
+classes and objects (pdf 설명) cpp_language.pdf 52 page
+
+sanghoon@sanghoon-B365M-DS3H:~/Documents/Develop/PX4-Autopilot$ 
+
+-> make px4_sitl jmavsim
+
+드론 시뮬레이터
+
+커맨드명령 : commander takeoff, commander land (이착륙) 
+
+-------------------------------------------------------------------
+
+cpp_language.pdf 53 page : Class Access Modifiers
+
