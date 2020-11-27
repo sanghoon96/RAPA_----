@@ -1,0 +1,35 @@
+class 와 structure 의 가장 큰 차이는 지금 단계에서는 
+
+open 되서 누구나 들어올 수 있다면 관리가 안된다
+
+외부에서 들어올 수 있기 때문에
+
+내부에서 변경할수 있게 나눈게 class
+
+단계를 나누는 방법은 private, public, protect
+
+-----------------------------------------------
+
+cpp_language.pdf 53page Class Access Modifiers
+
+definition 설명 double box
+
+-----------------------------------------------
+
+cpp_language.pdf 54page Class Constructor and Destructor
+
+생성자와 소멸자 설명
+
+class 에서는 변수를 어떻게 선언하는지
+
+디버깅 모드를 하고 직접 가동해서 어떻게 돌아가는지 보는게 좋을거 같다
+
+-----------------------------------------------
+
+cpp_language.pdf 55page Class by Pointer
+
+class 와 pointer 에 관한 설명
+
+오강사님왈 : 지금은 class 내부에서 pointer로 지정하고 함수를 나누는게 힘들거다
+
+디버깅 모드를 하고 직접 가동해서 어떻게 돌아가는지 보는게 좋을거 같다!!
