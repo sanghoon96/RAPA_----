@@ -33,3 +33,65 @@ class 와 pointer 에 관한 설명
 오강사님왈 : 지금은 class 내부에서 pointer로 지정하고 함수를 나누는게 힘들거다
 
 디버깅 모드를 하고 직접 가동해서 어떻게 돌아가는지 보는게 좋을거 같다!!
+
+값이 아무것도 안들어갔을 때 public에 있는 값으로 계산한다.
+
+-----------------------------------------------
+
+cpp_language.pdf 56page Exception Handling
+
+이사람이 전문가인지 알 수 있는 방법 : exception 처리를 했는가?
+
+throw는 사용자가 케어를 할때?
+
+쓰로우는 아래 트라이 캐치문에 해당하는 부분으로 간다
+
+~$ vi ExceptionHandling.cpp
+
+디버깅모드
+
+1. throw 부분 주석 처리하고 해보기
+
+2. return -1 주석 처리하고 빌드 다시해보기
+
+-----------------------------------------------
+
+cpp_language.pdf 58page Templates
+
+cpp_language.pdf 59page Templates with Function
+
+vi TemplateWithFunction.cpp
+
+cpp_language.pdf 60page Templates with Class
+
+클래스는 데이터 타입을 변화시키는게 아니라 여러개를 쓸 수 있게 만드는거다
+
+vi TemplateWithClass.cpp
+
+// class T is like clazz = java에서 class 를 clazz 라고도 한다. class T는 class 라는 뜻
+
+-----------------------------------------------
+
+Drone_Simulation.pdf 
+
+Open Source Drone Software Projects
+❖ Refer : https://dojofordrones.com/open-source-drone/
+
+Software Side
+❖ refer : https://www.lambdrive.com/depot/Robotics/Controller/index.html
+
+-----------------------------------------------
+
+~/Develops/PX4-Autopilot $ make px4_sitl jmavsim
+
+shutdown
+
+make px4_sitl gazebo
+
+-----------------------------------------------
+
+스마트폰에서 앱스토어에서 큐그라운드 컨트롤 검색, 다운
+
+Drone_QgroundControl.pdf
+
+QGC - Fly View : Record With Camera
