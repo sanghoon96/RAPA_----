@@ -1,0 +1,64 @@
+큐그라운드, 콘솔, 드론은 따로따로 분리되어 있는 객체다
+
+하나의 컴퓨터로 보기에 같이 가동하는 것처럼 보일뿐
+
+pxh> ver all                                        // 버전의 의미?
+
+pxh> uorb top                                       // 리눅스에서 top 의미랑 똑같음
+
+pxh> sensors status                                 // 센서 상태 지금은 많은게 나타나지 않음
+
+------------------------------------------------------------------------------------
+
+Drone_simulator.pdf 15page 명령어 따라하기
+
+링크 들어가보기
+
+commander takeoff -> commander disarm 하면 명령 듣지 않음 (시동 끄란 의미이기때문에)
+
+Drone_simulator.pdf 12page
+
+Drone_simulator.pdf 13page                              // vs code 설정하는법 (원래 알고 해야함)
+
+#include <px4_platform_common/log.h> 빨간줄 없어져야 함     // 설정
+
+cmake 로 파일 컴파일 하는법, 원본 파일 그대로 두고 우리가 설정하는 법 배우는 내용
+
+------------------------------------------------------------------------------------
+
+Drone_MAVSDK.pdf 2page git clone
+
+fork 하기 (fork한 시점 이후로 원래 개발자가 바꿔도 바뀌지 않는다 : 카피의 개념)
+
+명령어 따라하기
+
+Drone_MAVSDK.pdf 5page 6번째 줄부터
+
+--------------------------------------------------------------------------------------
+
+Drone_MAVSDK.pdf 3page 
+
+mav link
+
+4page 설명
+
+Try - Understand Compile 6page 설명
+
+rm -rf *            // 이후에 (폴더 다지우는 명령)
+
+cmake ../           // 해줘야함
+
+--------------------------------------------------------------------------------------
+
+MAVSDK - Common Form 7page
+
+여기서부터 이어지는 개념
+
+--------------------------------------------------------------------------------------
+
+Regist telemetry(Continue) Drone_MAVSDK.pdf 9page 
+
+Connect_result(Continue)
+int main 함수 아래에 계속 이어 붙여서 하면 문제는 없다
+
+함수분리나 깔끔하게 하고싶으면 폴더를 분리해서 따로 해도 된다
