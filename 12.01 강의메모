@@ -1,1 +1,48 @@
 make px4_sitl gazebo_typhoon_h480               //카메라있는드론 구동 명령어
+
+Drone_MAVSDK.pdf 11.page Takeoff(Continue)
+
+Drone_MAVSDK.pdf 12.page Land (continue)
+
+이어붙여서 해보기
+
+------------------------------------------------------------------------------
+
+Drone_MAVSDK.pdf 13.page Upload Mission(1)
+
+미션 만들어보기 내용
+
+~/build$ ./fly_mission udp://:14540
+
+Drone_MAVSDK.pdf 14.page Upload Mission(2)
+
+#include <future>       //추가로 include 해줘야 함
+
+------------------------------------------------------------------------------
+
+Drone_MAVSDK.pdf 16.page Try - Mission Plan with Code
+
+47.398170327054473, 8.5456490218639658 위치에서 시작 
+
+띄워서 돌고오기 미션 짜보기
+
+------------------------------------------------------------------------------
+
+Drone_MAVSDK.pdf 20.page Rotate Vehicle(1)
+
+bool offboard_ctrl_body(std::shared_ptr<mavsdk::Offboard> offboard){
+Offboard::Attitude control_stick{}; // Send once before starting offboard
+offboard->set_attitude(control_stick);
+Offboard::Result offboard_result = offboard->start();
+if (offboard_result != Offboard::Result::Success) { return 1; } // Failed
+control_stick.roll_deg = 30.0f;
+control_stick.thrust_value = 0.6f;
+offboard->set_attitude(control_stick);
+std::this_thread::sleep_for(std::chrono::seconds(5));
+offboard_result = offboard->stop(); // Send it once before ending offboard
+return true;
+}
+
+: main 함수 아래에
+
+위에 bool offboard_ctrl_body(std::shared_ptr<mavsdk::Offboard>); 선언해줘야함
