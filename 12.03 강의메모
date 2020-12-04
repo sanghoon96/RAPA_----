@@ -1,0 +1,124 @@
+여러개 드론띄우기 : 큐그라운드 준비 , 픽스호크 터미널 창 준비
+
+Drone_simulator.pdf 17page 
+
+https://dev.px4.io/master/en/simulation/multi_vehicle_simulation_gazebo.html            //들어가기
+
+--------------------------------------------------------------------------------------------------
+
+Network_LinuxClI.pdf
+
+~$ sudo apt install wireshark
+
+ifconfig
+
+sudo wireshark
+
+창뜨면 왼쪽 상단 버튼 세개 주목 -> 스탑 버튼 -> 다시할땐 continue without saving
+
+http/1.1 200 ok 클릭 -> 아래 hypertext transfer protocol
+
+--------------------------------------------------------------------------------------------------
+
+Network_LinuxClI.pdf 5page Network Command
+
+ifconfig? : 인터페이스 구성자, IP 주소 및 하드웨어보기 및 할당 / MAC 주소
+
+host : 이름을 IP로, IP를 IPv4 또는 IPv6에서 이름으로 찾고 DNS 레코드를 질문(쿼리)합니다.
+
+--------------------------------------------------------------------------------------------------
+
+Network_LinuxClI.pdf 6page Try-Network Command
+
+wireshark -> ip.addr == 125.209.222.142
+
+curl -vv naver.com -> naver ip 주소나옴
+
+첫번째 라인이 커넥트, 두번째 라인이 텔레메트리(액션을 하겠다?)
+
+ACK : acknowledge 인식
+
+ex) 43424 -> 80, 80 -> 43424 : 네트워크 간에서 신호를 서로 주고받는다
+
+--------------------------------------------------------------------------------------------------
+
+Network_LinuxClI.pdf 7page What's Network protocol
+
+설명~
+
+Network_LinuxClI.pdf 8page - Client & Server
+
+Network_LinuxClI.pdf 10page Network - Linux Command
+
+~$ ping 4.2.2.2
+
+ping -c : count 횟수
+
+wireshark : icmp (click) -> start capture
+
+wireshark  :  ping (옆자리 사람 ip주소) -> wireshark(icmp 입력)
+
+source : 내주소, destination : 상대방주소, Info : request, reply
+
+internet control message protocol -> data -> 
+
+--------------------------------------------------------------------------------------------------
+
+Network_LinuxClI.pdf 9page Route - Small(LAN) : 장비설명
+
+--------------------------------------------------------------------------------------------------
+https://www.whatsmyip.org/mac-address-lookup/
+
+Address Prefix          Vendor Name (1)
+18:c0:4d              Giga-byte Technology Co.,ltd.
+
+--------------------------------------------------------------------------------------------------
+
+~$ arp -a : 통신이력나옴
+
+http://192.168.0.1/
+
+Network_LinuxClI.pdf 14page - Big(WAN)
+
+~$ netstat -r : Kernel IP routing table
+
+Network_LinuxClI.pdf 19page - Network Command
+
+~$ traceroute 8.8.8.8
+
+192.168.0.33
+
+--------------------------------------------------------------------------------------------------
+
+port forwarding 
+
+ex ) http://182.217.110.148:8007/ 
+
+--------------------------------------------------------------------------------------------------
+
+port 
+
+wireshark filter tcp.port == 443 입력
+
+sudo lsof -i -P -n -> kill -9 (ip)
+
+--------------------------------------------------------------------------------------------------
+
+~$ ssh 192.168.0.198 -> jetbot :pw
+
+sudo apt install tightvncserver             // Remote Server
+
+vncserver
+
+vncserver -kill :1
+
+sudo apt install remmina
+
+레미나 키고 vnc : 192.168.0.198:5901 입력
+
+--------------------------------------------------------------------------------------------------
+
+traceroute? : 응답 ICMP를 사용하는 네트워크 문제 해결 유틸리티
+
+SSH (Secure Shell)
+❖ 네트워크 서비스 운영을위한 암호화 네트워크 프로토콜

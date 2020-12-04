@@ -1,0 +1,18 @@
+Network_LinuxCLI.pdf 29page UDP
+
+sudo wirewhark, ssh 192.168.0.198 (터미널 창 2개)
+
+jetbot@jetson-4-3:~$ nc -u -l 9999
+
+sanghoon@sanghoon-B365M-DS3H:~$ nc -u 192.168.0.198 9999
+
+Hello UDP.              //똑같이 나타남
+
+wirewhark enp7so 들어가서 멈춤, udp.port == 9999
+
+터미널창에서 영어로만 소통할수 있음
+
+터미널창 새로 띄워서 sanghoon@sanghoon-B365M-DS3H:~$ echo -n "echo hello" >/dev/udp/192.168.0.198/9999
+
+wirewhark 에서 확인 : 메시지 데이터 타입 확인할 수 있음
+
