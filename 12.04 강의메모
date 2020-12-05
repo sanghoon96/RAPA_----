@@ -16,3 +16,104 @@ wirewhark enp7so 들어가서 멈춤, udp.port == 9999
 
 wirewhark 에서 확인 : 메시지 데이터 타입 확인할 수 있음
 
+-------------------------------------------------------------------------------------------------
+
+Network_LinuxCLI.pdf 30page TCP
+
+Transmission Control Protocol, 신뢰성있게 에러없이 전송합니다.
+➢ 이메일, 파일 전송 등 사용
+➢ 3 자 악수
+
+-------------------------------------------------------------------------------------------------
+
+Network_LinuxCLI.pdf 31page Try - TCP
+
+sanghoon@sanghoon-B365M-DS3H:~$ nc 192.168.0.198 7777
+
+jetbot@jetson-4-3:~$ nc -l 7777
+
+wireshark : tcp.port == 7777
+
+메시지입력
+
+// 검은색부분 3handshake 를 확인할수 있음
+
+// ACK : text가 안담겨있음 
+
+-------------------------------------------------------------------------------------------------
+
+https://portswigger.net/burp/releases/professional-community-2020-11-3?requestededition=community                   //다운
+
+Network_LinuxCLI.pdf 32page HTTP
+
+하이퍼 텍스트 전송 프로토콜
+➢ WWW 등 사용
+HTTP
+
+Try - HTTP
+
+~$ sudo wireshark
+
+~$ curl -vv daum.net
+
+wireshark : ip.addr == 211.231.99.17   // 사이트 ip 주소 입력 
+
+protocol 소통방식 확인
+
+-------------------------------------------------------------------------------------------------
+
+https://chrome.google.com/webstore/detail/falcon-proxy/gchhimlnjdafdlkojbffdkogjhhkdepf?hl=ko
+
+falcon proxy 다운
+
+구글사이트창 오른쪽에서 add.. 만들기 
+
+-------------------------------------------------------------------------------------------------
+
+python 다시배움
+
+Try - List 자료형 구현과 이해
+>>> movies = ["The Holy Grail", "The Life of Brian", "The Meaning of Life"]
+>>> print(movies)
+['The Holy Grail', 'The Life of Brian', 'The Meaning of Life']
+>>> print(movies[1])
+The Life of Brian
+>>> print(len(movies))
+3
+>>> print(len(movies[1])+" - "+movies[2])
+
+→ Try : print(str(len(movies[1]))+" - "+movies[2])
+→ Try : print(len(movies[1])," - ",movies[2])
+
+17
+>>> del movies[2]
+❖ 해보기
+➢ 3종류 동물 이름과 분류 List 작성
+➢ 두번째에 새 동물 이름과 분류 추가. → 옵션
+➢ 세번째 동물 정보 출력
+➢ 세번째 동물 정보 삭제
+
+-------------------------------------------------------------------------------------------------
+
+
+Data Type - Tuples
+
+Useful Method
+
+Try - Function
+
+Try - Sum Function
+
+Function - Arguments
+
+File I/O(1)
+
+Handling Exceptions
+
+Try - 파일 다루기 위해 with 활용
+
+Class
+
+Pickle(00.HowToUserPickle.ipynb)
+
+What different is List and Ndarray
