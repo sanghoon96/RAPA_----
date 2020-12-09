@@ -1,0 +1,58 @@
+ComputerVision.pdf 
+
+ComputerVision.pdf - What’s see through eyes? 2page 설명
+
+ComputerVision.pdf - Computer Vision 3page
+
+컴퓨터 시각 인식
+❖ https://en.wikipedia.org/wiki/Computer_vision
+❖ 컴퓨터가 디지털 이미지 또는 비디오에서 높은 수준의 이해를 얻는 방법
+❖ 작업에는 획득, 처리, 분석 및 이해를위한 방법이 포함됩니다.
+디지털 이미지 및 실제 세계에서 고차원 데이터 추출
+숫자 또는 기호 정보를 생성하기 위해
+
+그리고 오강사님의 차원 설명...                  // 점, 직선, 차원 = 딥러닝
+
+-------------------------------------------------------------------------
+
+ComputerVision.pdf - MIME 5page
+
+다목적 인터넷 메일 확장 : 모든 파일에는 헤더 또는 네트워크 패킷
+
+colab 사용 -> 폴더 사용 
+
+컴퓨터 프로그래밍에서 상대경로를 사용하지 않는 것이 좋다 -> 되도록 절대경로 사용
+
+mount drive 
+
+실습내용 :
+
+import mimetypes
+mimetypes.guess_type('절대경로/파일')
+
+-> 파일타입나옴
+
+?mimetypes : 주피터에서만 가동
+
+-------------------------------------------------------------------------
+
+ComputerVision.pdf - Pixel 6page
+
+픽셀 : 모든 포인트 주소 지정이 가능한 디스플레이 장치에서 주소 지정이 가능한 가장 작은 요소입니다.
+
+ComputerVision.pdf 7page : Try - Making Digit
+
+-------------------------------------------------------------------------
+
+matrix, gpu 와의 관계 
+
+~$ ls -l /dev/video*
+~$ ffplay /dev/video0
+~$ sudo apt install ffmpe
+sudo apt install v4l-utils
+
+~$ python3
+>>> import cv2
+>>> cv2.__version__
+
+~$ sudo apt install python3-opencv -y

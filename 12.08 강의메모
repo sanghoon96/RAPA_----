@@ -1,0 +1,18 @@
+pixhawk 분리 -> 큐그라운드 실행 -> usb 단자에 픽스호크 연결, 웹캠 연결 -> 펌웨어 업데이트 (px4) -> 
+
+기체(airframe) 설정 : Generic Quadcopter (적용하고 재시작) -> 컴파스 센서 적용 ->센서(자이로스코프 : 적용)-> 가속도센서(accelerator) 적용 ( 픽스호크를 자세마다 돌려가면서 적용) -> 수평조정(Level Horizon) -> 
+
+조종기 배터리 연결
+
+mode 2 세팅법 -> mode 꾹 누르고 parameter push -> stk mode:2 
+
+mode -> model type -> reset execute
+
+조종기 수신기 바인딩 과정
+
+픽스호크 켜기 -> R9ds 픽스호크에 연결 (RC에 검은 전선 위로) -> r9ds 불빛쪽 스위치 누르면 빨간색 반짝이다가 빨강파랑 둘다들어옴 
+
+라디오 캘리브레이션에서 조종기 스로틀, 엘레베이터 피치 등 확인
+
+// 서브모터 연결 main out 3번에 고동색 위로 연결
+
