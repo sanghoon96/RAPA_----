@@ -1,4 +1,185 @@
+Opencv_Python.pdf
+
 Develop$ git clone https://github.com/opencv/opencv.git
 
-$ lsusb
+$ lsusb             // 어떤 기기들이 컴퓨터에 있는지 확인 명령어 
 
+ls /dev/video*                      // 기기가 연결되어있는가 확인
+
+ffplay
+
+$ ffplay /dev/video0 , $ ffplay /dev/video2         // 카메라 켜기
+
+~$ sudo apt install v4l-utils           // 유틸 설치
+
+~$ v4l2-ctl --list-devices : 
+
+Integrated Camera: Integrated C (usb-0000:00:14.0-1):
+	/dev/video0
+	/dev/video1
+
+3D USB Camera: 3D USB Camera (usb-0000:00:14.0-3):
+	/dev/video2
+	/dev/video3
+
+// 두개의 차이점을 알아야한다
+~$ v4l2-ctl --device=/dev/video0 --all :
+Device Caps : 0x04200001
+Video Capture
+
+~$ v4l2-ctl --device=/dev/video1 --all :
+Device Caps : 0x04a00000
+Metadata Capture
+
+---------------------------------------------------------------------
+
+/Develop/opencv/samples/python$ python3 ./facedetect.py                     // 얼굴 인식 
+
+---------------------------------------------------------------------
+
+OpenCV (Open Source Computer Vision Library)
+
+주요 Package
+➢ core. Core functionality         -> 4.1.2 version 선택 ( 4점대 버젼으로 )
+➢ imgproc. Image processing
+➢ objdetect. Object Detection
+
+➢ core. Core functionality 
+Enumerations 보기
+
+검색창에 내용 검색하면 해당하는 내용 다 나옴 (참고)
+
+---------------------------------------------------------------------
+
+Opencv_Python.pdf Read Image                // 읽는 파일의 형식에 관한 내용 : format의 중요성
+
+retval = cv.imread (filename [, flags]) : 파일에서 이미지로드
+➢ https://docs.opencv.org/4.4.0/d4/da8/group__imgcodecs.html#
+➢ 컬러 이미지에는 B G R 순서로 저장된 채널이 있습니다.
+➢ 파일 형식 지원 : Linux, 기타 Unix 계열 운영 체제 설치
+패키지 (예 : "libjpeg-dev"와 같은 개발 파일을 잊지 마십시오)
+■ Windows 비트 맵-* .bmp, * .dib (항상 지원됨)
+■ JPEG 파일-* .jpeg, * .jpg, * .jpe (참고 섹션 참조)
+■ ...
+
+❖ None = cv.imshow (winname, mat) : 지정된 창에 이미지를 표시합니다.
+➢ https://docs.opencv.org/4.4.0/d7/dfc/group__highgui.html#
+❖ retval = cv.waitKey ([, delay]) : 눌린 키를 기다립니다.
+➢ https://docs.opencv.org/4.4.0/d7/dfc/group__highgui.html#
+➢ 밀리 초 단위의 지연. 0은 "영원히"를 의미하는 특수 값입니다.
+
+https://docs.opencv.org/4.4.0/d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56 :
+
+imread()
+
+현재 다음 파일 형식이 지원됩니다.
+
+Windows 비트 맵-* .bmp, * .dib (항상 지원됨)
+JPEG 파일-* .jpeg, * .jpg, * .jpe (참고 섹션 참조)
+JPEG 2000 파일-* .jp2 (참고 섹션 참조)
+휴대용 네트워크 그래픽-* .png (참고 섹션 참조)
+WebP-* .webp (참고 섹션 참조)
+이식 가능한 이미지 형식-* .pbm, * .pgm, * .ppm * .pxm, * .pnm (항상 지원됨)
+PFM 파일-* .pfm (참고 섹션 참조)
+Sun 래스터-* .sr, * .ras (항상 지원됨)
+TIFF 파일-* .tiff, * .tif (참고 섹션 참조)
+OpenEXR 이미지 파일-* .exr (참고 섹션 참조)
+Radiance HDR-* .hdr, * .pic (항상 지원됨)
+GDAL에서 지원하는 래스터 및 벡터 지리 공간 데이터 (참고 섹션 참조)
+
+---------------------------------------------------------------------
+
+Opencv_Python.pdf Read Image 
+
+~$ vi ReadFromImage_Videos_Webcam.py
+from cv2 import cv2 as cv
+img = cv.imread("datas/imageslena.png")
+# DISPLAY
+cv.imshow("Lena Soderberg",img)
+cv.waitKey(0)
+
+---------------------------------------------------------------------
+
+Opencv_Python.pdf Read From Videos
+
+cv.resize : detect 빠르게 하기 위해서 -> 정상적인 크기로 사이즈 조절하면 속도가 빨라진다
+
+while 문을 쓰는 이유 : image의 연속이라서
+
+
+//파일 형식
+https://docs.opencv.org/4.4.0/d8/dfe/classcv_1_1VideoCapture.html#ac4107fb146a762454a8a87715d9b7c96
+
+formats are supported
+■ name of video file (eg. video.avi)
+■ or image sequence (eg. img_d.jpg, which will read img_00.jpg, ...)
+■ or URL of video stream (eg. protocol://host:port/name?script_params)
+
+---------------------------------------------------------------------
+오강사님 설명
+vscode 쓰는 이유 : debugging mode(중요)
+
+1. debugging mode breaking point 사용법 설명
+point 걸고 debug console 사용 : 값을 볼 수 있음
+-> 소스 코드를 바꾸지 않아도 실시간으로 값을 변화시킬 수 있다
+
+2. 카메라 자원을 확인 안하고 프로그램 실행시키는 경우가 많다.
+type(), resize() 이거 쓰는 경우 많음.
+
+---------------------------------------------------------------------
+
+딥러닝
+
+벡터와 매트릭스의 필요성
+
+함수(function) : 입력 -> 결과
+
+y = ax + b 공식만 알면 됨                                x -> y
+                                                        b -> y
+
+y = x1 + x2 + x3 ...        // x 의 개수만 늘리면 여러개의 입력값을 가질수 있다
+
+그래프의 결과를 나타내는 게 매트릭스로 표현
+
+---------------------------------------------------------------------
+
+Opencv_Python.pdf - Read From WebCam
+
+cap.set 을 할 수 있음
+
+debug 모드로 확인, 프로그램 띄우고 usb 단자 뽑아보기
+
+---------------------------------------------------------------------
+
+Opencv_Python.pdf Try - Read From WebCam
+
+//해보기
+try/except 이해하기, try/except 지워보기, cv.VideoCapture(0) → cv.VideoCapture(5), while(cap.isOpened()): → while(1):
+
+try/except 지워보기 : 돌아가긴함
+
+cv.VideoCapture(0) → cv.VideoCapture(5) : 바로 print (end) 실행됨
+
+while(cap.isOpened()): → while(1): -> 에러 안나는데..?
+
+---------------------------------------------------------------------
+
+Try - Read From Image, Videos, WebCam
+❖ 해 보기
+➢ Read Image, Videos, WebCam, UDP to belong with Keyboard
+■ end - ‘q’, Image - ‘i’, videos - ‘v’, webcam - ‘w’, UDP - ‘u’
+■ Apply try/except/finally
+
+---------------------------------------------------------------------
+
+Opencv_Python.pdf - Draw Lines, Rectangles
+
+x, y 좌표 이해하기
+
+Draw Circles and Text
+
+전 파일 이어서 하면 됨
+
+Try - Draw Circles and Text
+
+원을 그리고 안에 문자 집어넣기 해보기 
