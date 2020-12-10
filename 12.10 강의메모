@@ -1,0 +1,33 @@
+강의시작 복습 : opencv 키 값을 보려면 직접 사이트에 들어가서 확인하면 된다
+
+Opencv_python.pdf - Convert Video To Image
+
+imwrite 함수가 중요 
+
+imwrite(filename(로컬 파일이름), img)
+
+retval = cv.imwrite (filename, img [, params]) : 이미지 형식은 파일 이름 확장자
+
+~$ vi ConvertVideoToImages.py :
+filename = 'datas/videos/Armbot.mp4' 을 0.5초마다 img를 찍어 폴더를 만들어 저장하는 내용
+
+https://docs.opencv.org/4.4.0/d4/d15/group__videoio__flags__base.html#ggaeb8dd9c89c10a5c63c139bf7c4f5704da7c2fa550ba270713fca1405397b90ae0
+//참고
+
+---------------------------------------------------------------------
+
+Convert Image To Video
+
+❖ retval = cv.VideoWriter_fourcc (c1, c2, c3, c4) : 코덱의 fourcc 코드
+
+https://www.fourcc.org/codecs.php       //참고
+
+cv.VideoWriter_fourcc(*'DIVX') 설명 :
+
+파이썬에서 * : list, ** : dic 
+
+---------------------------------------------------------------------
+
+Crop and resize Image
+
+plt.imshow(img[:,:,::-1]) : cv 에서는 BGR 로 읽기때문에 RGB를 거꾸로 해줘야 하기때문에 이렇게 해야 이미지를 제대로 읽는다
