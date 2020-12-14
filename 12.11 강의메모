@@ -1,0 +1,72 @@
+Opencv_Python.pdf - Previous and Current Frame different from Camera
+
+threshold 개념 이해하기
+
+frame_diff.py 원리를 이해하고 넘어가야함
+
+- opencv bitwise_and :          //함수 기능 알기
+
+-----------------------------
+
+Tesseract 
+
+~$ sudo apt install -y tesseract-ocr libtesseract-dev
+
+~$ tesseract --version
+
+영어, 한국어, 컬러들어간 영수증 이미지 다운로드 -> 테서랙트로 글자 읽어보기
+
+tesseract ./(파일명) stdout -l eng --psm 6
+
+이미지 스크린샷으로 글자 부분만 크롭 -> 테서랙트로 글자 읽어보기
+
+사진원본 크롭한거와 글자 부분만 크롭한거 차이 알기
+
+tesseract ./cropKorean.png stdout --oem 3 --psm 6 -l kor+kor_vert+eng               // 영수증이 접혀서 그런지 제대로 인식되지 않는다
+
+tesseract ./cropColor.png stdout --oem 3 --psm 6 -l kor+kor_vert+eng                // 이건 제대로 나옴
+
+번호판 해보기 : 
+
+---------------------------------------------
+
+pytesseract
+
+~$ python3 -m pip install pytesseract               //이미지에서 이제 x,y 좌표 표시 나옴
+
+~$ vi PytesseractwithKorean.py
+
+다음 함수 기능을 알자
+
+- pytesseract.image_to_string(img)
+
+- pytesseract.image_to_data
+
+---------------------------------------------
+
+Threshold
+
+~$ vi GlobalThresholding.py
+
+cv.IMREAD_GRAYSCALE
+cv.THRESH_BINARY
+cv.THRESH_BINARY_INV
+cv.THRESH_TRUNC
+cv.THRESH_TOZERO
+cv.THRESH_TOZERO_INV                                    // 개념알기
+
+위에 내용 이용해서 detecting하기
+
+사진마다 배경색이 있기 때문에 그에 맞는 배경색으로 바꿔서 detecting 하면 더 잘 될수 있다
+
+----------------------------------------------------
+
+adaptiveThreshold
+
+mean, gaussian 차이 알기
+
+평균, 표준편차 
+
+-----------------------------------------------
+
+Gray Scale, Blur
