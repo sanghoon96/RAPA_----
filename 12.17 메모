@@ -1,0 +1,16 @@
+프로젝트 12.16부터 시작
+
+~$ sudo apt install ss
+
+~$ service ssh start
+
+// 컴퓨터 한번 포맷해서 ssh 가 안깔려있었다
+
+도움받아서 다시 설치하고 함
+
+------------------------------------
+
+jetbot에 문제 생겨서 format -> image 다시 다운(flashing)
+
+sudo apt install ffmpeg -y
+

@@ -1,0 +1,8 @@
+Opencv_Python.pdf
+
+Detect shapes of objects with Contour
+
+~$ vi DetectShapesOfObjectsWithContour.py
+
+contours, hierarchy = cv.findContours (이미지, 모드, 방법 [, 윤곽 [,hierarchy [, offset]]]) : 이진 이미지에서 윤곽선을 찾습니다.
+
