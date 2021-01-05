@@ -4,6 +4,8 @@ AI 에 관한 설명
 
 자동차 AI simulator 동영상 시청 -> 학습시키기 설명
 
+pdf 내용
+
 Ai (Artificial Intelligence) -> 학습/추론 능력을 컴퓨터로 구현
 
 ML (Machine Learning) -> 데이터 패턴 학습 후 미지 데이터 예측, Data Mining : 데이터 관계나 속성 목적
@@ -13,3 +15,37 @@ DL (Deep Learning) -> Neural Network 통해 데이터 예측
 인공지능 > 머신러닝 (Regression, Classification, Neural Network) > 딥러닝 (CNN, RNN, LSTM...)
 
 지난번 고양이, 개 분류 수업 때 -> probability - dogs : 98%, cats : 1.9%             //Ai는 퍼센트로 얘기한다 100%는 의심해봐야 한다
+
+
+
+
+
+ML_Feature.pdf 6 Steps of Machine Learning
+
+학습시킨것만 기준이다
+
+
+
+관계식 찾기 -> 알고리즘을 알고 관계식으로 표현해야 프로그램을 짤 수가 있다
+
+
+
+Copy of tf2_object_detection.ipynb
+
+detection 퍼센트 확인
+
+
+
+
+
+오강사님 콜랩 사본 자기 드라이브에 사본으로 저장해서 학습
+
+ML_Regression.pdf
+
+USA_Housing.csv.xlsx
+
+Try - LinearRegression
+
+
+Try - LinearRegression 14page
+
